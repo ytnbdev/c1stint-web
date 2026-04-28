@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サポート — C1 Stint</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --accent: #00e5ff;
+      --text: #e0e0e0;
+      --text-sub: #888;
+      --text-muted: #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      padding: 0 0 60px;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    header .logo {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 4px;
+    }
+    header a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 13px;
+      margin-left: auto;
+    }
+    header a:hover { color: var(--text); }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: var(--text-sub); font-size: 14px; margin-bottom: 40px; }
+    h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 36px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    p { color: var(--text-sub); margin-bottom: 12px; }
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .contact-card:hover { border-color: var(--accent); }
+    .contact-card .icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .contact-card .info .title {
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .contact-card .info .desc {
+      color: var(--text-sub);
+      font-size: 13px;
+    }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 10px 0;
+    }
+    .faq-item .q {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .faq-item .a { color: var(--text-sub); font-size: 14px; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 60px;
+    }
+    footer a { color: var(--text-sub); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="logo">C1 STINT</span>
+    <a href="index.html">← トップ</a>
+  </header>
+
+  <main>
+    <h1>サポート</h1>
+    <p class="subtitle">C1 Stint に関するお問い合わせ・不具合報告はこちらから。</p>
+
+    <h2>お問い合わせ</h2>
+
+    <a class="contact-card" href="https://github.com/ytnbdev/c1stint-web/issues/new?template=support.md&title=%5B%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%5D" target="_blank">
+      <span class="icon">🐛</span>
+      <div class="info">
+        <div class="title">不具合報告・機能リクエスト</div>
+        <div class="desc">GitHub Issues からご報告ください</div>
+      </div>
+    </a>
+
+    <a class="contact-card" href="mailto:c1stint.app@gmail.com">
+      <span class="icon">✉️</span>
+      <div class="info">
+        <div class="title">メールでのお問い合わせ</div>
+        <div class="desc">c1stint.app@gmail.com</div>
+      </div>
+    </a>
+
+    <h2>よくある質問</h2>
+
+    <div class="faq-item">
+      <div class="q">Q. アカウント登録は必要ですか？</div>
+      <div class="a">不要です。既存ユーザーから招待 QR コードをもらうだけで利用できます。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">Q. GPS履歴は保存されますか？</div>
+      <div class="a">保存されません。位置情報はスティント走行中にリアルタイムで共有されるだけで、セッション終了後はサーバーから即座に削除されます。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">Q. ゼッケン番号は毎日変わりますか？</div>
+      <div class="a">はい。毎朝6:00にリセットされ、新しい番号が割り当てられます。継続的な追跡を防ぐための仕組みです。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">Q. バッテリーの消費が気になります</div>
+      <div class="a">スティント走行中はGPSを高精度で取得するため、バッテリー消費が増加します。走行中は充電しながらのご利用をお勧めします。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">Q. C1以外のエリアでも使えますか？</div>
+      <div class="a">位置情報の表示自体はC1エリア外でも動作しますが、ラップ計測・渋滞検知などの機能は首都高速C1（都心環状線）専用です。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">Q. 不具合を見つけました</div>
+      <div class="a">アプリ内の「不具合報告」ボタン、またはこのページのお問い合わせフォームからご連絡ください。できる限り迅速に対応します。</div>
+    </div>
+
+    <h2>ベータ版について</h2>
+    <p>現在ベータ版として提供しています。アラートの誤検知・未検知が発生する可能性があります。安全運転を最優先に、アプリの情報を過信しないようにお願いします。</p>
+  </main>
+
+  <footer>
+    <p>© 2026 C1 Stint &nbsp;·&nbsp; <a href="privacy.html">プライバシーポリシー</a> &nbsp;·&nbsp; <a href="support.html">サポート</a></p>
+  </footer>
+</body>
+</html>

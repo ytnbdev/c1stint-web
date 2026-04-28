@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー — C1 Stint</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --accent: #00e5ff;
+      --text: #e0e0e0;
+      --text-sub: #888;
+      --text-muted: #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      padding: 0 0 60px;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    header .logo {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 4px;
+    }
+    header a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 13px;
+      margin-left: auto;
+    }
+    header a:hover { color: var(--text); }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .updated {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 36px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    p { color: var(--text-sub); margin-bottom: 12px; }
+    ul { color: var(--text-sub); padding-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 12px 0;
+    }
+    .card .label {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .card .value { color: var(--text); font-size: 14px; }
+    .no-collect {
+      background: rgba(0, 229, 255, 0.05);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 10px;
+      padding: 16px 20px;
+      color: var(--accent);
+      font-size: 14px;
+      margin: 12px 0;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 60px;
+    }
+    footer a { color: var(--text-sub); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="logo">C1 STINT</span>
+    <a href="index.html">← トップ</a>
+  </header>
+
+  <main>
+    <h1>プライバシーポリシー</h1>
+    <p class="updated">最終更新：2026年4月</p>
+
+    <div class="no-collect">
+      ✓ このアプリはアカウント登録不要です。氏名・メールアドレスなど個人を特定できる情報は一切収集しません。
+    </div>
+
+    <h2>収集する情報</h2>
+    <p>C1 Stint（以下「本アプリ」）は、以下の情報のみを使用します。</p>
+
+    <div class="card">
+      <div class="label">位置情報（GPS）</div>
+      <div class="value">スティント走行中にリアルタイムで取得します。同じC1を走る仲間への位置通知のみに使用し、サーバーへの走行履歴・位置ログの保存は行いません。セッション終了と同時にサーバー上のデータは削除されます。</div>
+    </div>
+
+    <div class="card">
+      <div class="label">カメラ</div>
+      <div class="value">招待 QR コードを読み取るためだけに使用します。撮影した画像の保存・送信は行いません。</div>
+    </div>
+
+    <div class="card">
+      <div class="label">加速度センサー</div>
+      <div class="value">渋滞・停車の検知に使用します。センサーデータはリアルタイム処理のみで、サーバーへの送信・保存は行いません。</div>
+    </div>
+
+    <div class="card">
+      <div class="label">ゼッケン番号（匿名 ID）</div>
+      <div class="value">個人を特定しない匿名の識別番号です。毎朝6:00にランダムで再割り当てされます。氏名・デバイス ID などとの紐付けは行いません。</div>
+    </div>
+
+    <div class="card">
+      <div class="label">累積走行距離</div>
+      <div class="value">オーラランクの算出のみを目的として、端末内（ローカル）にのみ保存します。サーバーへの送信は行いません。</div>
+    </div>
+
+    <h2>収集しない情報</h2>
+    <ul>
+      <li>氏名・住所・電話番号・メールアドレス</li>
+      <li>デバイス識別情報（IDFA・広告 ID 等）</li>
+      <li>走行履歴・位置ログ</li>
+      <li>連絡先・カレンダー・写真など他のアプリデータ</li>
+    </ul>
+
+    <h2>第三者への情報提供</h2>
+    <p>本アプリは、収集した情報を第三者へ販売・提供・開示しません。</p>
+    <p>位置情報は Firebase Realtime Database（Google）を通じて同一セッション参加者間でリアルタイム共有されますが、セッション終了後は自動的に削除されます。Google のプライバシーポリシーは <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent);">こちら</a> をご覧ください。</p>
+
+    <h2>プッシュ通知</h2>
+    <p>前方の渋滞・停止車両を検知した際に、ローカル通知を送信します。通知は端末内で生成され、通知内容はサーバーに送信・保存されません。</p>
+
+    <h2>お子様のプライバシー</h2>
+    <p>本アプリは自動車の運転者を対象としており、18歳未満の方の使用を想定していません。</p>
+
+    <h2>ポリシーの変更</h2>
+    <p>本ポリシーを変更する場合は、このページを更新します。重要な変更がある場合は、アプリ内でお知らせします。</p>
+
+    <h2>お問い合わせ</h2>
+    <p>プライバシーに関するご質問は、<a href="support.html" style="color: var(--accent);">サポートページ</a>からお問い合わせください。</p>
+  </main>
+
+  <footer>
+    <p>© 2026 C1 Stint &nbsp;·&nbsp; <a href="privacy.html">プライバシーポリシー</a> &nbsp;·&nbsp; <a href="support.html">サポート</a></p>
+  </footer>
+</body>
+</html>
