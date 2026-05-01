@@ -97,6 +97,27 @@
       font-size: 14px;
       margin: 12px 0;
     }
+    .support-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+      margin: 12px 0;
+    }
+    .support-card:hover { border-color: var(--accent); }
+    .support-card .icon { font-size: 24px; flex-shrink: 0; }
+    .support-card .info .title {
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .support-card .info .desc { color: var(--text-sub); font-size: 13px; }
     footer {
       border-top: 1px solid var(--border);
       padding: 20px 24px;
@@ -174,6 +195,16 @@
 
     <h2>お問い合わせ</h2>
     <p>プライバシーに関するご質問は、<a href="support.html" style="color: var(--accent);">サポートページ</a>からお問い合わせください。</p>
+
+    <h2>開発を支援する</h2>
+    <p>C1 Stintは無料・広告なし・データ販売なしで運営しています。お気持ち程度のご支援をいただけると幸いです。</p>
+    <a class="support-card" href="https://ofuse.me/905e1e22" target="_blank">
+      <span class="icon">☕</span>
+      <div class="info">
+        <div class="title">OFUSEで支援する</div>
+        <div class="desc">クレジットカード・各種決済対応 · 任意・強制ではありません</div>
+      </div>
+    </a>
   </main>
 
   <footer>
