@@ -66,7 +66,7 @@
       display: flex;
       justify-content: center;
     }
-    .hero h1 span { color: var(--accent); }
+    .hero h1 .highlight { color: var(--accent); }
     .hero p {
       color: var(--text-sub);
       font-size: 16px;
@@ -205,6 +205,9 @@
     }
     footer a { color: var(--text-sub); text-decoration: none; margin: 0 8px; }
     footer a:hover { color: var(--text); }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 28px; }
+    }
   </style>
 </head>
 <body>
@@ -218,7 +221,7 @@
 
     <div class="hero">
       <p class="tagline">FOR ALL C1 RUNNERS</p>
-      <h1>首都高C1を走る<br><span>仲間とつながる</span>アプリ</h1>
+        <h1><span class="scramble">首都高C1を走る</span><br><span class="scramble highlight">仲間とつながる</span><br><span class="scramble">アプリ</span></h1>
       <div class="hero-video">
         <iframe width="315" height="560" 
                 src="https://www.youtube.com/embed/jtfF5ULJsQU" 
@@ -294,5 +297,28 @@
       <a href="support.html">サポート</a>
     </p>
   </footer>
+  <script type="module">
+    import { createTimeline, scrambleText, stagger } from 'https://esm.sh/animejs';
+
+    const tl = createTimeline({ loop: true });
+
+    tl.add('.scramble', {
+      innerHTML: scrambleText({
+        duration: 800,
+        cursor: '░▒▓█',
+      }),
+    }, stagger(300));
+
+    tl.add('.scramble', {
+      innerHTML: scrambleText({
+        text: '',
+        override: false,
+        duration: 600,
+        cursor: '░▒▓',
+      }),
+    }, stagger(300, { start: '+=1000' }));
+
+    tl.init();
+  </script>
 </body>
 </html>
