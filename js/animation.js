@@ -37,6 +37,7 @@ const initSplash = () => {
       opacity: 0;
       transform: translateY(20px);
       animation: splashFadeIn 1.2s forwards ease-out;
+      display: inline-block;
     }
     @keyframes splashFadeIn {
       to {
@@ -52,6 +53,17 @@ const initSplash = () => {
   
   document.head.appendChild(style);
   document.body.prepend(splash);
+  
+  // Scramble animation for the splash logo
+  const logo = splash.querySelector('.splash-logo');
+  const logoTl = createTimeline();
+  logoTl.add(logo, {
+    innerHTML: scrambleText({
+      text: 'C1 STINT',
+      duration: 1000,
+      cursor: '░▒▓█',
+    }),
+  }, { delay: 300 });
   
   return splash;
 };
@@ -84,19 +96,23 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
   const splash = initSplash();
   
-  // Wait for content to be ready, then hide splash and start animations
   window.addEventListener('load', () => {
     setTimeout(() => {
       splash.classList.add('splash-hidden');
       
-      // Target all common text elements for scramble effect
+      // Target all common text elements, but avoid parents of .scramble to preserve <br>
       const textElements = document.querySelectorAll('h1, h2, p, li, .badge, .title, .desc, .scramble');
       textElements.forEach(el => {
-        // Avoid scrambling the logo or navigation
         if (!el.closest('header') && !el.closest('footer')) {
-          observer.observe(el);
+          // Only observe if it doesn't contain other elements that are also being scrambled
+          if (!el.querySelector('.scramble')) {
+            observer.observe(el);
+          } else {
+            // If it contains .scramble elements, observe the children instead
+            el.querySelectorAll('.scramble').forEach(child => observer.observe(child));
+          }
         }
       });
-    }, 1500); // Show splash for 1.5s
+    }, 1800); // Slightly longer to allow splash logo animation to complete
   });
 });
