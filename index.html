@@ -240,10 +240,10 @@
     </div>
   </div>
 
-  <div class="features">
-    <div class="features-inner">
-      <h2>Features</h2>
-      <div class="feature-grid">
+    <div class="features">
+      <div class="features-inner">
+        <h2 class="scramble">Features</h2>
+        <div class="feature-grid">
         <div class="feature-card">
           <div class="icon">📡</div>
           <div class="title">リアルタイムレーダー</div>
@@ -268,9 +268,9 @@
     </div>
   </div>
 
-  <div class="support-section">
-    <h2>Support Development</h2>
-    <p>C1 Stintは無料・広告なし・データ販売なしで運営しています。<br>開発継続の励みになりますので、お気持ち程度のご支援をいただけると幸いです。</p>
+    <div class="support-section">
+      <h2 class="scramble">Support Development</h2>
+      <p>C1 Stintは無料・広告なし・データ販売なしで運営しています。<br>開発継続の励みになりますので、お気持ち程度のご支援をいただけると幸いです。</p>
     <a class="support-card" href="https://ofuse.me/905e1e22" target="_blank">
       <span class="icon">☕</span>
       <div class="info">
@@ -280,9 +280,9 @@
     </a>
   </div>
 
-  <div class="privacy-section">
-    <h2>Privacy First</h2>
-    <div class="privacy-row">
+    <div class="privacy-section">
+      <h2 class="scramble">Privacy First</h2>
+      <div class="privacy-row">
       <span class="privacy-item"><span class="check">✓</span> 個人情報収集なし</span>
       <span class="privacy-item"><span class="check">✓</span> GPS履歴保存なし</span>
       <span class="privacy-item"><span class="check">✓</span> アカウント不要</span>
@@ -297,28 +297,6 @@
       <a href="support.html">サポート</a>
     </p>
   </footer>
-  <script type="module">
-    import { createTimeline, scrambleText, stagger } from 'https://esm.sh/animejs';
-
-    const tl = createTimeline({ loop: true });
-
-    tl.add('.scramble', {
-      innerHTML: scrambleText({
-        duration: 800,
-        cursor: '░▒▓█',
-      }),
-    }, stagger(300));
-
-    tl.add('.scramble', {
-      innerHTML: scrambleText({
-        text: '',
-        override: false,
-        duration: 600,
-        cursor: '░▒▓',
-      }),
-    }, stagger(300, { start: '+=1000' }));
-
-    tl.init();
-  </script>
+  <script type="module" src="js/animation.js"></script>
 </body>
 </html>
