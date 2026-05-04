@@ -63,7 +63,8 @@ const initSplash = () => {
       duration: 1000,
       cursor: '░▒▓█',
     }),
-  }, { delay: 300 });
+  }, '+=300');
+  logoTl.init(); // CRITICAL: Must call init() to start the timeline
   
   return splash;
 };
@@ -87,6 +88,7 @@ const observer = new IntersectionObserver((entries) => {
           cursor: '░▒▓█',
         }),
       });
+      tl.init();
 
       observer.unobserve(target);
     }
@@ -100,19 +102,30 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       splash.classList.add('splash-hidden');
       
-      // Target all common text elements, but avoid parents of .scramble to preserve <br>
-      const textElements = document.querySelectorAll('h1, h2, p, li, .badge, .title, .desc, .scramble');
-      textElements.forEach(el => {
-        if (!el.closest('header') && !el.closest('footer')) {
-          // Only observe if it doesn't contain other elements that are also being scrambled
-          if (!el.querySelector('.scramble')) {
+      // To avoid double-observation and preserving line breaks:
+      // 1. Find all potential targets
+      const targets = document.querySelectorAll('h1, h2, p, li, .badge, .title, .desc, .scramble');
+      const observedElements = new Set();
+
+      targets.forEach(el => {
+        if (el.closest('header') || el.closest('footer')) return;
+
+        // If it's a container with .scramble children, only observe the children
+        if (el.querySelector('.scramble')) {
+          el.querySelectorAll('.scramble').forEach(child => {
+            if (!observedElements.has(child)) {
+              observer.observe(child);
+              observedElements.add(child);
+            }
+          });
+        } else {
+          // Only observe if it's not already observed (e.g. as a child of something else)
+          if (!observedElements.has(el)) {
             observer.observe(el);
-          } else {
-            // If it contains .scramble elements, observe the children instead
-            el.querySelectorAll('.scramble').forEach(child => observer.observe(child));
+            observedElements.add(el);
           }
         }
       });
-    }, 1800); // Slightly longer to allow splash logo animation to complete
+    }, 1800);
   });
 });
