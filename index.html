@@ -42,74 +42,70 @@
       font-size: 13px;
     }
     nav a:hover { color: var(--text); }
+    /* ── Hero ── */
     .hero {
-      max-width: 720px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 80px 24px 60px;
-      text-align: center;
+      padding: 60px 24px 40px;
     }
     .hero .tagline {
       font-family: 'Courier New', monospace;
       font-size: 13px;
       color: var(--accent);
       letter-spacing: 3px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+      text-align: center;
     }
     .hero h1 {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 700;
       line-height: 1.3;
-      margin-bottom: 16px;
-    }
-    .hero-video {
       margin-bottom: 32px;
-      display: flex;
-      justify-content: center;
+      text-align: center;
     }
     .hero h1 .highlight { color: var(--accent); }
-    .hero p {
-      color: var(--text-sub);
-      font-size: 16px;
-      max-width: 480px;
-      margin: 0 auto 40px;
+
+    /* デスクトップ: 動画 左 / CTA 右 */
+    .hero-main {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 40px;
+      align-items: start;
     }
-    .badge-row {
+    .hero-video iframe {
+      display: block;
+      border-radius: 10px;
+    }
+    .hero-cta {
       display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 8px;
     }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 14px;
-      font-size: 13px;
+    .hero-cta .app-desc {
       color: var(--text-sub);
+      font-size: 15px;
+      line-height: 1.7;
     }
+
+    /* ダウンロードボタン */
     .download-section {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 32px;
+      gap: 12px;
     }
     .download-btn-row {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      justify-content: center;
     }
     .btn-store {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       font-weight: 700;
-      font-size: 15px;
-      padding: 14px 28px;
+      font-size: 14px;
+      padding: 12px 22px;
       border-radius: 10px;
       text-decoration: none;
       transition: opacity 0.2s;
@@ -130,6 +126,69 @@
     .download-note {
       font-size: 12px;
       color: var(--text-muted);
+    }
+
+    /* QR告知カード */
+    .qr-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .qr-notice .qr-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .qr-notice .qr-body { display: flex; flex-direction: column; gap: 6px; }
+    .qr-notice .qr-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .qr-notice .qr-desc {
+      font-size: 12px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+    .qr-notice .qr-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 4px;
+    }
+    .qr-notice .qr-link:hover { opacity: 0.8; }
+
+    /* バッジ行 */
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    /* モバイル: 縦積み */
+    @media (max-width: 620px) {
+      .hero-main {
+        grid-template-columns: 1fr;
+      }
+      .hero-video { order: 2; display: flex; justify-content: center; }
+      .hero-cta   { order: 1; }
     }
     .features {
       background: var(--surface);
@@ -287,44 +346,67 @@
 
     <div class="hero">
       <p class="tagline">FOR ALL C1 RUNNERS</p>
-      <div class="download-section">
-        <div class="download-btn-row">
-          <a class="btn-store btn-android"
-             href="https://github.com/ytnbdev/c1stint-apk/releases/latest/download/app-release.apk"
-             download>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6 7.5A6 6 0 0 1 18 7.5v.17A2 2 0 0 1 19 9.5v5a2 2 0 0 1-2 2v1.5a1 1 0 1 1-2 0V16.5H9V18a1 1 0 1 1-2 0v-1.5a2 2 0 0 1-2-2v-5a2 2 0 0 1 1-1.83V7.5Zm3.5 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM8.62 5.32l-1.5-2.598a.5.5 0 0 1 .866-.5L9.5 4.82A6.02 6.02 0 0 1 12 4.5c.88 0 1.715.188 2.5.32l1.514-2.598a.5.5 0 1 1 .866.5l-1.5 2.598A5.985 5.985 0 0 1 18 7.5H6a5.985 5.985 0 0 1 2.62-2.18Z"/>
-            </svg>
-            Android APK
-          </a>
-          <span class="btn-store btn-ios" aria-disabled="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-            </svg>
-            App Store
-            <span style="font-size:11px; font-weight:400; margin-left:2px;">準備中</span>
-          </span>
-        </div>
-        <span class="download-note">Android版 v1.0.0 · 設定で「提供元不明アプリ」の許可が必要です</span>
-      </div>
-        <h1><span class="scramble">首都高C1を走る</span><br><span class="scramble highlight">仲間とつながる</span><br><span class="scramble">アプリ</span></h1>
-      <div class="hero-video">
-        <iframe width="315" height="560" 
-                src="https://www.youtube.com/embed/jtfF5ULJsQU" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-        </iframe>
-      </div>
-      <p>アカウント不要。匿名。リアルタイム。首都高速C1（都心環状線）専用のドライバーズコミュニティアプリです。</p>
-      <div class="badge-row">
+      <h1><span class="scramble">首都高C1を走る</span><br><span class="scramble highlight">仲間とつながる</span><br><span class="scramble">アプリ</span></h1>
 
-      <span class="badge">📍 リアルタイムレーダー</span>
-      <span class="badge">⚠️ 渋滞アラート</span>
-      <span class="badge">🏆 オーラランク</span>
+      <div class="hero-main">
+        <!-- 左: 動画 -->
+        <div class="hero-video">
+          <iframe width="270" height="480"
+                  src="https://www.youtube.com/embed/jtfF5ULJsQU"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- 右: CTA -->
+        <div class="hero-cta">
+          <p class="app-desc">アカウント不要。匿名。リアルタイム。<br>首都高速C1（都心環状線）専用の<br>ドライバーズコミュニティアプリです。</p>
+
+          <!-- ダウンロードボタン -->
+          <div class="download-section">
+            <div class="download-btn-row">
+              <a class="btn-store btn-android"
+                 href="https://github.com/ytnbdev/c1stint-apk/releases/latest/download/app-release.apk"
+                 download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6 7.5A6 6 0 0 1 18 7.5v.17A2 2 0 0 1 19 9.5v5a2 2 0 0 1-2 2v1.5a1 1 0 1 1-2 0V16.5H9V18a1 1 0 1 1-2 0v-1.5a2 2 0 0 1-2-2v-5a2 2 0 0 1 1-1.83V7.5Zm3.5 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM8.62 5.32l-1.5-2.598a.5.5 0 0 1 .866-.5L9.5 4.82A6.02 6.02 0 0 1 12 4.5c.88 0 1.715.188 2.5.32l1.514-2.598a.5.5 0 1 1 .866.5l-1.5 2.598A5.985 5.985 0 0 1 18 7.5H6a5.985 5.985 0 0 1 2.62-2.18Z"/>
+                </svg>
+                Android APK
+              </a>
+              <span class="btn-store btn-ios" aria-disabled="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                App Store
+                <span style="font-size:11px;font-weight:400;margin-left:2px;">準備中</span>
+              </span>
+            </div>
+            <span class="download-note">Android v1.0.0 · 提供元不明アプリの許可が必要</span>
+          </div>
+
+          <!-- QR招待告知 -->
+          <div class="qr-notice">
+            <span class="qr-icon">🎫</span>
+            <div class="qr-body">
+              <span class="qr-title">招待QRコードが必要です</span>
+              <span class="qr-desc">このアプリは招待制です。QRコードをスキャンするまで使用できません。QRコードはTwitter / Xにて配布します。</span>
+              <a class="qr-link" href="https://x.com/c1stint" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                @c1stint でQRを入手 →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="badge-row">
+        <span class="badge">📍 リアルタイムレーダー</span>
+        <span class="badge">⚠️ 渋滞アラート</span>
+        <span class="badge">🏆 オーラランク</span>
+      </div>
     </div>
-  </div>
 
     <div class="features">
       <div class="features-inner">
