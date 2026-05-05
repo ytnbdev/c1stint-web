@@ -237,6 +237,31 @@
       margin-bottom: 2px;
     }
     .support-card .info .desc { color: var(--text-sub); font-size: 13px; }
+    .twitter-section {
+      max-width: 720px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+    }
+    .twitter-section h2 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .twitter-section p {
+      color: var(--text-sub);
+      font-size: 13px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .twitter-timeline-wrap {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
     footer {
       border-top: 1px solid var(--border);
       padding: 24px;
@@ -341,6 +366,20 @@
     </a>
   </div>
 
+  <div class="twitter-section">
+    <h2>Twitter / X</h2>
+    <p>QRコードの配布・最新情報はこちらで告知します。</p>
+    <div class="twitter-timeline-wrap">
+      <a class="twitter-timeline"
+         data-theme="dark"
+         data-height="500"
+         data-chrome="noheader nofooter noborders"
+         href="https://twitter.com/c1stint">
+        Tweets by @c1stint
+      </a>
+    </div>
+  </div>
+
     <div class="privacy-section">
       <h2 class="scramble">Privacy First</h2>
       <div class="privacy-row">
@@ -359,5 +398,6 @@
     </p>
   </footer>
   <script type="module" src="js/animation.js"></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
